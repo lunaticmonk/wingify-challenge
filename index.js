@@ -57,6 +57,33 @@ app.get('/markRead', (req, res) => {
   });
 });
 
+app.get('/generate', (req, res) => {
+  let  count = 0;
+  const autogenerate = setInterval(() => {
+    let newNotification = new notification();
+    newNotification.message = 'Sumedh sent you a request.';
+    newNotification.timestamp = moment().format("ddd, hA");
+
+    newNotification.save((err, noti) => {
+      if (err) throw err;
+      console.log(noti);
+    });
+    if (++count == 2) {
+      clearInterval(autogenerate);
+    }
+  }, 10000);
+  res.send('Please refresh your page after 10 seconds');
+});
+
+app.get('/delete', (req, res) => {
+  notification.find({}, (err, notifications) => {
+    notifications.forEach(notification => {
+      notification.remove();
+    });
+  });
+  res.send('Dropdown cleared. Please refresh the page');
+});
+
 app.listen(PORT, () => {
   console.log('App running on port', PORT);
 });
