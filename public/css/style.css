@@ -7,7 +7,7 @@ html, body {
 }
 
 .ui.dropdown .menu {
-  /*max-width: 300px;*/
+  max-width: 300px;
   border-radius: 1.2em !important;
 }
 
@@ -37,14 +37,14 @@ body > div.ui.massive.menu > div.item.right.floated {
 }
 
 .dd-row {
-  /*overflow: auto;
-  display: block;
-  text-overflow: ellipsis;
-  white-space: nowrap;*/
   min-height: 60px;
   background-color: #F2F3F4 !important;
 }
 
 .dd-row * {
   margin: 10px !important;
+}
+
+.dd-row h6 {
+  text-align: right;
 }

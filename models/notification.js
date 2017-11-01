@@ -6,7 +6,7 @@ let Schema = mongoose.Schema;
 let notification = new Schema({
   message   : String,
   read      : { type: Boolean, default: false },
-  timestamp : Date
+  timestamp : String
 });
 
 let newNotification = mongoose.model('notification', notification);

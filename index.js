@@ -18,19 +18,16 @@ app.use(bodyparser.urlencoded({
 }));
 mongoose.connect(`mongodb://${configs.db_username}:${configs.db_password}@ds145193.mlab.com:45193/wingify-challenge`);
 
-
 app.get('/', (req, res) => {
   let allNotifications = [];
   let unreadNotifications = [];
   notification.find({}, (err, allnotifications) => {
     if (err) console.error(err);
-
     unreadNotifications = allnotifications.filter((notification) => {
       if (!notification.read) {
         return notification;
       }
     });
-    console.log(unreadNotifications);
     allNotifications = allnotifications;
     res.render('home', { allNotifications: allNotifications, unreadNotifications: unreadNotifications });
   });
@@ -39,7 +36,7 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   let newNotification = new notification();
   newNotification.message = req.body.message;
-  newNotification.timestamp = moment();
+  newNotification.timestamp = moment().format("ddd, hA");
 
   newNotification.save((err, noti) => {
     if (err) throw err;
