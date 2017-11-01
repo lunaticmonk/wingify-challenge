@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+html, body {
+  font-family: 'Raleway', sans-serif;
+  min-height: 100%;
+  background-color: #D6EAF8 !important;
+}
+
+.ui.dropdown .menu {
+  /*max-width: 300px;*/
+  border-radius: 1.2em !important;
+}
+
+.ui.dropdown .menu .message {
+  color: #566573;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+body > div.ui.massive.menu > div.item.right.floated {
+  float: right !important;
+}
+
+.ui.dropdown .menu .heading {
+  max-height: 35px;
+  font-size: 1rem;
+  pointer-events: none;
+  text-align: center !important;
+}
+
+#bell-label {
+  border-radius: 12px;
+  position: relative;
+  left: 10px;
+  bottom: 27px;
+  font-size: .7rem;
+}
+
+.dd-row {
+  /*overflow: auto;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;*/
+  min-height: 60px;
+  background-color: #F2F3F4 !important;
+}
+
+.dd-row * {
+  margin: 10px !important;
+}

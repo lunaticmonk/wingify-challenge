@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wingify full stack challenge</title>
+    <link rel="stylesheet" href="semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="./js/markRead.js"></script>
+  </head>
+  <body>
+    <div class="ui massive menu">
+      <a href="#" class="item"><h1 class="ui header">Wingify</h1></a>
+      <div class="item">
+        <div class="ui floating dropdown icon">
+          <i class="alarm outline icon" onclick="markRead()"><span class="ui label teal" id="bell-label">{{unreadNotifications.length}}</span></i>
+          <div class="menu">
+            <div class="item heading">Notifications&nbsp;<span class="ui label teal">{{allNotifications.length}}</span></div>
+
+              <div class="ui fluid link celled selection list">
+                {{#each allNotifications}}
+                  {{#with this}}
+                  <div class="item dd-row">
+                    <img class="ui avatar image" src="http://i.pravatar.cc/300" alt="avatar">
+                    <span>
+                      <span class="message">{{message}}</span>
+                    </span>
+                  </div>
+                  {{/with}}
+                {{/each}}
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui segment">
+      <div class="ui stackable two column grid">
+        <div class="column">
+          <form class="" action="/" method="POST">
+            <div class="ui input focus">
+                <input type="text" placeholder="Enter notification to be sent" name="message">
+            </div>
+            <button type="submit" name="button" class="ui button teal">Send notification</button>
+          </form>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            {{allNotifications}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/dropdown.js"></script>
+</html>
