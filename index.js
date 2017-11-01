@@ -40,7 +40,6 @@ app.post('/', (req, res) => {
 
   newNotification.save((err, noti) => {
     if (err) throw err;
-    console.log(noti);
   });
   res.redirect('/');
 });
@@ -51,7 +50,6 @@ app.get('/markRead', (req, res) => {
     unreadNotifications.forEach(unreadNotification => {
       unreadNotification.read = true;
       unreadNotification.save((err, readNotification) => {
-        console.log(`marked ${unreadNotification.message} as read`);
       });
     });
   });
@@ -66,7 +64,6 @@ app.get('/generate', (req, res) => {
 
     newNotification.save((err, noti) => {
       if (err) throw err;
-      console.log(noti);
     });
     if (++count == 2) {
       clearInterval(autogenerate);

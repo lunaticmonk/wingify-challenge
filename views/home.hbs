@@ -17,7 +17,6 @@
           <i class="alarm outline icon" onclick="markRead()"><span class="ui label teal" id="bell-label">{{unreadNotifications.length}}</span></i>
           <div class="menu">
             <div class="item heading">Notifications&nbsp;<span class="ui label teal">{{allNotifications.length}}</span></div>
-
               <div class="ui fluid link celled selection list">
                 {{#each allNotifications}}
                   {{#with this}}
@@ -29,12 +28,10 @@
                   {{/with}}
                 {{/each}}
               </div>
-
           </div>
         </div>
       </div>
     </div>
-
     <div class="ui segment">
       <div class="ui stackable two column grid">
         <div class="column">
