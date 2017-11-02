@@ -1,8 +1,8 @@
 # Wingify fullstack notification challenge
 
 ###### Prerequisites
-- node
-- npm
+- node v7.10.0
+- npm 5.3.0
 
 - Extract the files
 - ```cd into project```
@@ -10,4 +10,4 @@
 - ```nodemon index.js```
 - Go to browser at ```localhost:8000``` to see the app.
 
-If you don't want to set up, I have hosted the app on heroku. Check it out here: https://wingify-winter.herokuapp.com
+Just for some ease during evaluation, I have hosted the app on heroku. Check it out here: https://wingify-winter.herokuapp.com
