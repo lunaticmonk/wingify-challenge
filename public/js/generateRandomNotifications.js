@@ -4,7 +4,6 @@
     xhttp.open('GET', '/generate', true);
     xhttp.onreadystatechange = () => {
       if (xhttp.readyState == 4 && xhttp.status == 200) {
-        // console.log(xhttp.responseText);
         document.querySelector('.info-text').innerHTML = xhttp.responseText;
       }
     }

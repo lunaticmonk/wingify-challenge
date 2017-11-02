@@ -7,8 +7,13 @@ html, body {
 }
 
 .ui.dropdown .menu {
-  max-width: 300px;
+  min-width: max-content;
   border-radius: 1.2em !important;
+}
+
+body > div.ui.massive.menu > div:nth-child(2) {
+  display: block;
+  float: right;
 }
 
 .ui.dropdown .menu .message {
@@ -28,8 +33,12 @@ body > div.ui.massive.menu > div.item.right.floated {
   text-align: center !important;
 }
 
-#bell-label {
+.ui.label.teal {
   border-radius: 12px;
+
+}
+
+#bell-label {
   position: relative;
   left: 10px;
   bottom: 27px;

@@ -7,7 +7,8 @@ const mongoose = require('mongoose');
 const configs = require('./configs');
 const notification = require('./models/notification');
 const moment = require('moment');
-const PORT = 8000 || process.ENV.PORT;
+const sample_messages = require('./sample-message');
+const PORT = 8000 || process.env.PORT;
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
@@ -33,17 +34,6 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/', (req, res) => {
-  let newNotification = new notification();
-  newNotification.message = req.body.message;
-  newNotification.timestamp = moment().format("ddd, hA");
-
-  newNotification.save((err, noti) => {
-    if (err) throw err;
-  });
-  res.redirect('/');
-});
-
 app.get('/markRead', (req, res) => {
   notification.find({ read: false }, (err, unreadNotifications) => {
     if (err) console.error(err);
@@ -59,7 +49,7 @@ app.get('/generate', (req, res) => {
   let  count = 0;
   const autogenerate = setInterval(() => {
     let newNotification = new notification();
-    newNotification.message = 'Sumedh sent you a request.';
+    newNotification.message = sample_messages["samples"][Math.floor(Math.random()*sample_messages["samples"].length)];
     newNotification.timestamp = moment().format("ddd, hA");
 
     newNotification.save((err, noti) => {
@@ -68,8 +58,8 @@ app.get('/generate', (req, res) => {
     if (++count == 2) {
       clearInterval(autogenerate);
     }
-  }, 10000);
-  res.send('Please refresh your page after 10 seconds');
+  }, 5000);
+  res.send('Two notifications will be sent in 10 seconds. Please refresh your page after 10 seconds');
 });
 
 app.get('/delete', (req, res) => {
@@ -78,7 +68,7 @@ app.get('/delete', (req, res) => {
       notification.remove();
     });
   });
-  res.send('Dropdown cleared. Please refresh the page');
+  res.send('Dropdown cleared. Please refresh the page to see.');
 });
 
 app.listen(PORT, () => {
